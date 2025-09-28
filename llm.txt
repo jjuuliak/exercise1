@@ -1,0 +1,15 @@
+I used mainly ChatGPT but also copilot
+
+Copilot was used to make working faster, it helped with autofilling imports and package versions.
+
+Motivation to use LLM is that it is easier and faster than Googling. Many things in coding is in any case checked from somewhere (documentation, stackoverflow...).
+
+LLM is also a great tool for brainstorming and troubleshooting. These days LLM is also quite good in explaining the solutions it gives. Of course still testing and careful editing is needed.
+
+LLM is a great help with more complicated functions that are harder to Google as well. For example is helped greatly to create a function to get the disc space.
+
+Mistakes that LLM made
+With Dockerfiles you need quite some trial and error even with the help of LLM. 
+After asking ChatGPT multiple times, testing and editing I ended up getting the Dockerfiles so that I'm satisfied. It often tries to give unnecessarily complicated solutions.
+
+LLM gets easily confused with more complex systems.

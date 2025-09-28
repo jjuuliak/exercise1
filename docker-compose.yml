@@ -1,0 +1,55 @@
+services:
+  service1:
+    build:
+      context: ./Service1
+      dockerfile: Dockerfile
+    container_name: service1
+    environment:
+      STORAGE_URL: http://storage:8300
+      SERVICE2_URL: http://service2:8200
+    ports:
+      - "8199:8199"
+    volumes:
+      - vStorage:/app/vstorage
+    depends_on:
+      - service2
+      - storage
+    networks:
+      - backend
+    restart: unless-stopped
+
+  service2:
+    build:
+      context: ./Service2
+      dockerfile: Dockerfile
+    container_name: service2
+    environment:
+      STORAGE_URL: http://storage:8300
+    expose:
+      - "8200"
+    volumes:
+      - vStorage:/app/vstorage
+    networks:
+      - backend
+    restart: unless-stopped
+
+  storage:
+    build:
+      context: ./Storage
+      dockerfile: Dockerfile
+    container_name: storage
+    expose:
+      - "8300"
+    volumes:
+      - ./Storage/data:/app/data
+    networks:
+      - backend
+    restart: unless-stopped
+
+#Network definition to allow the services to communicate
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  vStorage: {}  
