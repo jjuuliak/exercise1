@@ -60,20 +60,8 @@ function appendToVolume(line) {
   }
 }
 
-async function postToStorage(line) {
-  try {
-    await axios.post(`${STORAGE_URL}/log`, line, {
-      headers: { "Content-Type": "text/plain" },
-      timeout: 3000
-    });
-  } catch {
-    throw new Error("Failed to post to Storage");
-  }
-}
-
 async function saveLogs(line) {
   appendToVolume(line);
-  await postToStorage(line);
 }
 
 app.use(async (req, res, next) => {

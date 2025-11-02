@@ -54,16 +54,8 @@ def append_to_volume(line):
   except Exception as e:
     print(f"Error writing to storage: {e}")
 
-async def post_to_storage(line):
-  try:
-    async with httpx.AsyncClient(timeout=3.0) as client:
-      await client.post(f"{STORAGE_URL}/log", content=line, headers={"Content-Type": "text/plain"})
-  except Exception as e:
-    print(f"Error posting to storage: {e}")
-
 async def save_logs(line):
   append_to_volume(line)
-  await post_to_storage(line)
 
 @app.get("/status", response_class=PlainTextResponse)
 async def status(request: Request):

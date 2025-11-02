@@ -1,3 +1,5 @@
+This is the llm.txt from the exercise1.
+
 I used mainly ChatGPT but also copilot
 
 Copilot was used to make working faster, it helped with autofilling imports and package versions.
