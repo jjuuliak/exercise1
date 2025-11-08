@@ -10,7 +10,7 @@ services:
     ports:
       - "8199:8199"
     volumes:
-      - ./Storage/data:/app/data
+      - ./Storage/data:/app/vstorage
     depends_on:
       - service2
       - storage
@@ -28,7 +28,7 @@ services:
     expose:
       - "8200"
     volumes:
-      - ./Storage/data:/app/data
+      - ./Storage/data:/app/vstorage
     networks:
       - backend
     restart: unless-stopped
@@ -41,7 +41,7 @@ services:
     expose:
       - "8300"
     volumes:
-      - ./Storage/data:/app/data
+      - ./Storage/data:/app/vstorage
     networks:
       - backend
     restart: unless-stopped

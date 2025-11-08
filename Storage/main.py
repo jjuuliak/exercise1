@@ -4,7 +4,7 @@ from fastapi.responses import PlainTextResponse
 
 app = FastAPI()
 
-LOG_PATH = Path("data/log.txt")
+LOG_PATH = Path("vstorage/requests.log")
 LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
 LOG_PATH.touch(exist_ok=True)
 
